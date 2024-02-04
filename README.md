@@ -35,5 +35,5 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-
 <h1>Color BAr with percentage https://project-tan-one.vercel.app/color-bar</h1>
+<img src="bar.png"/>
