@@ -9,11 +9,28 @@ const ColorBar = () => {
     { label: "Contact :", value: "01775566772" },
     { label: "About :", value: "" },
   ];
+
+  const numberOfRows = data.length;
+  let nonEmptyRows = 0;
+
+  for (const item of data) {
+    if (item.value !== "") {
+      nonEmptyRows++;
+    }
+  }
+
+  const percentage = (nonEmptyRows / numberOfRows) * 100;
+
   return (
     <div className="container dark:bg-slate-500">
       <p className="font-semibold mt-3">
         its a color bar it will automatically update color if its data fill
-        otherwise it will remain gray color can be change as you want its responsive you can use anywhere
+        otherwise it will remain gray color can be change as you want its
+        responsive you can use anywhere.
+        <br />
+        <span>Total data filled according to row</span>
+        <br />
+        <span>{percentage} %</span>
       </p>
       <div className="flex gap-1 mb-3 mt-5">
         {data
