@@ -1,14 +1,24 @@
 "use client";
+import Modal from "@/components/ui/modal";
 import { MessageSquareCode, Star, UserRound } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Dashboard = () => {
   const [extentDiv, setextentDiv] = useState<boolean | null>(false);
+  const [popup, SetPopUp] = useState<boolean>(false);
+
   const extentDivclick = () => {
     setextentDiv(!extentDiv);
   };
+  useEffect(() => {
+    const isPopupShown = localStorage.getItem("isPopupShown");
+    if (!isPopupShown) {
+      SetPopUp(true);
+    }
+  }, []);
+
   return (
     <div className="container grid grid-cols-3 mt-5 gap-4">
       <div className="col-span-2">
@@ -46,7 +56,7 @@ const Dashboard = () => {
                 <span>4.7 star Rating</span>
               </div>
               <div className="flex space-x-2">
-                <MessageSquareCode /> 
+                <MessageSquareCode />
                 <span>50000 review</span>
               </div>
             </div>
@@ -75,6 +85,7 @@ const Dashboard = () => {
             Go to Dashboard
           </button>
         </Link>
+        <Modal open={popup} SetPopUp={SetPopUp} />
       </div>
     </div>
   );
